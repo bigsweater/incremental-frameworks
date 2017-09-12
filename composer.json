@@ -1,0 +1,8 @@
+{
+    "name": "bigsweater/vue-for-legacy",
+    "description": "A simple tutorial for creating a Vue app on a legacy site",
+    "type": "project",
+    "require": {
+        "twbs/bootstrap": "v4.0.0-beta"
+    }
+}

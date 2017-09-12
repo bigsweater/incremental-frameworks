@@ -1,0 +1,31 @@
+version: "3.3"
+
+services:
+  composer:
+    command: ["composer", "install"]
+    image: "bigsweater/jigsaw-docker"
+    volumes:
+      - ".:/app"
+
+  jigsaw:
+    command: ["jigsaw", "init", "."]
+    image: "bigsweater/jigsaw-docker"
+    volumes:
+      - ".:/app"
+
+  jigsaw_build:
+    command: ["jigsaw", "build", "local"]
+    image: "bigsweater/jigsaw-docker"
+    volumes:
+      - ".:/app"
+
+  node:
+    command: ["npm", "install"]
+    depends_on: 
+      - jigsaw_build
+    environment:
+      - NODE_ENV=development
+    image: "bigsweater/jigsaw-docker"
+    volumes:
+      - ./:/usr/src/app
+    working_dir: /usr/src/app
