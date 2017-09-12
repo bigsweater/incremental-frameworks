@@ -20,7 +20,16 @@ module.exports = {
 		new webpack.optimize.CommonsChunkPlugin({
 			name: 'manifest',
 			minChunks: Infinity
-		})
+		}),
+
+		new webpack.ProvidePlugin({
+			'jQuery': 'jquery',
+			'window.jQuery': 'jquery',
+			'jquery': 'jquery',
+			'window.jquery': 'jquery',
+			'$': 'jquery',
+			'window.$': 'jquery'
+		}),
 	],
 
 	target: 'web'
