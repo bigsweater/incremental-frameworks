@@ -28,7 +28,8 @@ module.exports = {
 			'jquery': 'jquery',
 			'window.jquery': 'jquery',
 			'$': 'jquery',
-			'window.$': 'jquery'
+			'window.$': 'jquery',
+			'Popper': 'popper.js/dist/umd/popper.js'
 		}),
 	],
 
