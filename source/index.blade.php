@@ -16,15 +16,15 @@
 	<div class="container">
 		<div class="row">
 			<div class="card">
-				<img alt="100%x280" style="height: 280px; width: 100%; display: block;" src="https://placehold.it/356x280">
+				<img alt="100%x280" style="height: 280px; width: 100%; display: block;" src="https://placehold.it/356x280/868e96/f8f9fa">
 				<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
 			</div>
 			<div class="card">
-				<img alt="100%x280" src="https://placehold.it/356x280" style="height: 280px; width: 100%; display: block;">
+				<img alt="100%x280" src="https://placehold.it/356x280/868e96/f8f9fa" style="height: 280px; width: 100%; display: block;">
 				<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
 			</div>
 			<div class="card">
-				<img alt="100%x280" src="https://placehold.it/356x280" style="height: 280px; width: 100%; display: block;">
+				<img alt="100%x280" src="https://placehold.it/356x280/868e96/f8f9fa" style="height: 280px; width: 100%; display: block;">
 				<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
 			</div>
 		</div>
