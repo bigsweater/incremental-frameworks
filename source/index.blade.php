@@ -7,9 +7,8 @@
 		<p class="lead text-muted">Here is some hero content. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore quos omnis magni corrupti amet quas pariatur odio tenetur voluptatum atque, veniam ea accusantium id, ratione unde eos velit officiis expedita.</p>
 		<p>
 			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalWidget">
-				Launch demo modal
+				Customize Your Product
 			</button>
-			<a href="#" class="btn btn-secondary">Secondary Call to Action</a>
 		</p>
 	</div>
 </section>
@@ -33,27 +32,6 @@
 	</div>
 </div>
 
-
-<!-- Modal -->
-<section class="modal fade" id="modalWidget" tabindex="-1" role="dialog" aria-labelledby="modalWidgetLabel" aria-hidden="true">
-	<div class="modal-dialog" role="document">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h5 class="modal-title" id="modalWidgetLabel">Customize your product</h5>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-			</div>
-			<div class="modal-body">
-				
-
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-dismiss="modal">Reset</button>
-				<button type="button" class="btn btn-primary">Add to Cart</button>
-			</div>
-		</div>
-	</div>
-</section>
+@include('_partials/modal')
 
 @endsection
