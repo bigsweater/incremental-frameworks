@@ -1,4 +1,4 @@
-FROM bigsweater/jigsaw-docker:v1.0.7 as builder
+FROM bigsweater/jigsaw-docker:v1.0.7
 
 WORKDIR /app
 
@@ -10,5 +10,5 @@ RUN git clone https://github.com/bigsweater/incremental-frameworks.git . \
 
 FROM nginx:1.13
 
-COPY --from=builder /app/build_production /usr/share/nginx/html
+COPY --from=0 /app/build_production /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/conf.d/default.conf
