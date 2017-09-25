@@ -13,6 +13,7 @@ elixir(function(mix) {
     mix
         .sass('main.scss')
         .webpack('app.js')
+        .copy(elixir.config.assetsPath + '/js/configurator.js', './source/js/configurator.js')
         .exec(bin.path() + ' build ' + env, ['./source/*', './source/**/*', '!./source/_assets/**/*'])
         .browserSync({
             port: port,
