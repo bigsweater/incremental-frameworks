@@ -65,12 +65,12 @@
 
 								<div class="row">
 									<div class="col-6">
-										<input id="productCustomColorScheme" type="color" name="productBGColor" value="#868e96" class="form-control p-0">
+										<input id="productCustomColorScheme" type="color" name="productBGColor" v-model="colorScheme[selectedColorScheme].background" class="form-control p-0">
 										<label class="form-text text-muted mt-0" for="productCustomColorScheme"><small>Background</small></label>
 									</div>
 
 									<div class="col-6">
-										<input id="productTextColor" type="color" name="productTextColor" value="#f8f9fa" class="form-control p-0">
+										<input id="productTextColor" type="color" name="productTextColor" v-model="colorScheme[selectedColorScheme].text" class="form-control p-0">
 										<label class="form-text text-muted mt-0" for="productTextColor"><small>Text</small></label>
 									</div>
 								</div>

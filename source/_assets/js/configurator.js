@@ -9,28 +9,28 @@ var Configurator = new Vue({
 		},
 		colorScheme: {
 			Flowers: {
-				background: '',
-				text: ''
+				background: '#76B041',
+				text: '#FFC914'
 			},
 			Rivers: {
-				background: '',
-				text: ''
+				background: '#698F3F',
+				text: '#804E49'
 			},
 			Sand: {
-				background: '',
-				text: ''
+				background: '#D58936',
+				text: '#A44200'
 			},
 			Snow: {
-				background: '',
-				text: ''
+				background: '#F8FFF4',
+				text: '#474350'
 			},
 			Storm: {
-				background: '',
-				text: ''
+				background: '#031926',
+				text: '#7CA5B8'
 			},
 			'Custom...': {
-				background: '',
-				text: ''
+				background: '#868e96',
+				text: '#f8f9fa'
 			}
 		},
 		selectedColorScheme: ''
