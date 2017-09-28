@@ -28,7 +28,7 @@ var Configurator = new Vue({
 				background: '',
 				text: ''
 			},
-			Custom: {
+			'Custom...': {
 				background: '',
 				text: ''
 			}

@@ -52,15 +52,15 @@
 
 								<div class="row">
 									<div class="col-12">
-<select class="custom-select" id="productColorScheme" v-model="selectedColorScheme">
-	<option value="">Choose a color scheme</option>
-	<option v-for="(scheme, schemeName) in colorScheme" :value="schemeName" :selected="schemeName === selectedColorScheme">@{{schemeName}}</option>
-</select>
+										<select class="custom-select" id="productColorScheme" v-model="selectedColorScheme">
+											<option value="">Choose a color scheme</option>
+											<option v-for="(scheme, schemeName) in colorScheme" :value="schemeName" :selected="schemeName === selectedColorScheme">@{{schemeName}}</option>
+										</select>
 									</div>
 								</div>
 							</div>
 
-							<div class="form-group">
+							<div v-if="selectedColorScheme === 'Custom...'" class="form-group">
 								<label for="productCustomColorScheme">Custom color scheme</label>
 
 								<div class="row">
