@@ -33,7 +33,8 @@ var Configurator = new Vue({
 				text: '#f8f9fa'
 			}
 		},
-		selectedColorScheme: ''
+		selectedColorScheme: '',
+		url: 'https://placehold.it/320x240/868e96/f8f9fa?text=' + encodeURIComponent('Oh, hello')
 	},
 
 	computed: {
@@ -65,5 +66,44 @@ var Configurator = new Vue({
 				return text;
 			}
 		}
+	},
+
+	watch: {
+		productImageURL: function (newURL) {
+			this.delayedUpdateURL(newURL);
+		}
+	},
+
+	methods: {
+		delayedUpdateURL: debounce(function (newURL) {
+			this.url = newURL;
+		}, 1000)
 	}
 });
+
+function debounce(fn, wait, immediate) {
+	var timeout;
+
+	return function() {
+		var context = this;
+		var args = arguments;
+		
+		function later () {
+			timeout = null;
+
+			if (!immediate) {
+				fn.apply(context, args);
+			}
+		}
+
+		var callNow = immediate && !timeout;
+
+		clearTimeout(timeout);
+
+		timeout = setTimeout(later, wait);
+
+		if (callNow) {
+			fn.apply(context, args);
+		}
+	}
+}

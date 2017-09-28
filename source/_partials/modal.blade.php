@@ -12,7 +12,7 @@
 				<form>
 					<div class="row">
 						<div class="col-sm-6 text-center">
-							<img alt="Product Image" v-bind:src="productImageURL" style="max-width: 100%; height: auto;">
+							<img alt="Product Image" :src="url" style="max-width: 100%; height: auto;">
 						</div>
 
 						<div class="col-sm-6">
