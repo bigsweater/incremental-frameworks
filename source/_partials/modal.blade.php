@@ -21,6 +21,7 @@
 									<div class="col-12">
 										<label class="col-form-label" for="productText">Text</label>
 										<input type="text" class="form-control" id="productText" placeholder="Text on your image">
+										<p>@{{ text }}</p>
 									</div>
 								</div>
 							</div>

@@ -18,7 +18,7 @@
         
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.4/vue.min.js"></script>
         <script type="text/javascript" src="/js/manifest.js"></script>
-		<script type="text/javascript" src="/js/vendor.js"></script>
+        <script type="text/javascript" src="/js/vendor.js"></script>
         <script type="text/javascript" src="/js/main.js"></script>
         <script type="text/javascript" src="/js/configurator.js"></script>
     </body>
