@@ -33,6 +33,8 @@ var Configurator = new Vue({
 				text: '#f8f9fa'
 			}
 		},
+		
+		maxTextLength: 140,
 		selectedColorScheme: '',
 		url: 'https://placehold.it/320x240/868e96/f8f9fa?text=' + encodeURIComponent('Oh, hello')
 	},
@@ -65,6 +67,26 @@ var Configurator = new Vue({
 
 				return text;
 			}
+		},
+
+		textLengthDifference: function () {
+			return this.maxTextLength - this.text.length;
+		},
+
+		validForm: function () {
+			return this.validHeight && this.validText && this.validWidth
+		},
+
+		validHeight: function () {
+			return this.validateNumber(this.size.height)
+		},
+
+		validText: function () {
+			return this.text.length <= this.maxTextLength
+		},
+
+		validWidth: function () {
+			return this.validateNumber(this.size.width)
 		}
 	},
 
@@ -77,9 +99,21 @@ var Configurator = new Vue({
 	methods: {
 		delayedUpdateURL: debounce(function (newURL) {
 			this.url = newURL;
-		}, 1000)
+		}, 1000),
+
+		validateNumber: function (number) {
+			return isInt(number) &&
+				   number >= 50 &&
+				   number <= 600
+		}
 	}
 });
+
+function isInt(value) {
+	return !isNaN(value) &&
+		   parseInt(Number(value)) == value &&
+		   !isNaN(parseInt(value, 10))
+}
 
 function debounce(fn, wait, immediate) {
 	var timeout;

@@ -9,7 +9,7 @@
 			</div>
 
 			<div class="modal-body">
-				<form>
+				<form id="product-configurator">
 					<div class="row">
 						<div class="col-sm-6 text-center">
 							<img alt="Product Image" :src="url" style="max-width: 100%; height: auto;">
@@ -20,7 +20,12 @@
 								<div class="row">
 									<div class="col-12">
 										<label class="col-form-label" for="productText">Text</label>
-										<input type="text" class="form-control" id="productText" placeholder="Text on your image" v-model="text">
+										<input 
+											type="text"
+											class="form-control"
+											id="productText"
+											placeholder="Text on your image"
+											v-model="text">
 									</div>
 								</div>
 							</div>
@@ -31,15 +36,33 @@
 								<div class="row align-items-center">								
 									<div class="col-5">
 										<label class="sr-only" for="productSizeX">Width</label>
-										<input class="form-control" type="text" id="productSizeX" placeholder="Width" aria-describedby="dimensionsHelp" v-model="size.width">
+										<input
+											class="form-control form-control-warning"
+											type="number"
+											id="productSizeX" 
+											placeholder="Width" 
+											aria-describedby="dimensionsHelp"
+											min="50"
+											max="600"
+											v-model="size.width">
 									</div>
 
 									<div class="col-2">&times;</div>
 									
 									<div class="col-5">
 										<label class="sr-only" for="productSizeY">Height</label>
-										<input class="form-control" type="text" id="productSizeY" placeholder="Height" aria-describedby="dimensionsHelp" v-model="size.height">
+										<input
+											class="form-control form-control-warning"
+											type="number"
+											id="productSizeY" 
+											placeholder="Height" 
+											aria-describedby="dimensionsHelp"
+											min="50"
+											max="600"
+											v-model="size.height">
 									</div>
+
+									<div class="invalid-feedback">Please use a value between 50 and 600.</div>
 								</div>
 
 								<small id="dimensionsHelp" class="form-text text-muted">
