@@ -33,8 +33,10 @@ var Configurator = new Vue({
 				text: '#f8f9fa'
 			}
 		},
-		
+
 		maxTextLength: 140,
+		maxDimension: 600,
+		minDimension: 50,
 		selectedColorScheme: '',
 		url: 'https://placehold.it/320x240/868e96/f8f9fa?text=' + encodeURIComponent('Oh, hello')
 	},
@@ -47,9 +49,9 @@ var Configurator = new Vue({
 
 			function buildURL () {
 				var base = 'https://placehold.it/';
-				var size = self.size.width + 'x' + self.size.height + '/';
-				var colors = colorsURLPart(self);
-				var text = textURLPart(self);
+				var size = sizeURLPart();
+				var colors = colorsURLPart();
+				var text = textURLPart();
 
 				return base + size + colors + text;
 			}
@@ -62,8 +64,19 @@ var Configurator = new Vue({
 				return bg + '/' + text + '/';
 			}
 
+			function sizeURLPart () {
+				var width = valBetween(self.size.width, self.minDimension, self.maxDimension);
+				var height = valBetween(self.size.height, self.minDimension, self.maxDimension);
+
+				return width + 'x' + height + '/';
+			}
+
 			function textURLPart() {
 				var text = self.text.length ? '?text=' + encodeURIComponent(self.text) + '&' : '';
+
+				if (text.length > self.maxTextLength) {
+					text = text.slice(0, self.maxTextLength - 1)
+				}
 
 				return text;
 			}
@@ -103,8 +116,8 @@ var Configurator = new Vue({
 
 		validateNumber: function (number) {
 			return isInt(number) &&
-				   number >= 50 &&
-				   number <= 600
+				   number >= this.minDimension &&
+				   number <= this.maxDimension
 		}
 	}
 });
@@ -140,4 +153,8 @@ function debounce(fn, wait, immediate) {
 			fn.apply(context, args);
 		}
 	}
+}
+
+function valBetween (val, min, max) {
+	return (val > min) ? ((val < max) ? val : max) : min
 }
