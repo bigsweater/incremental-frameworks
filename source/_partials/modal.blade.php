@@ -21,7 +21,6 @@
 									<div class="col-12">
 										<label class="col-form-label" for="productText">Text</label>
 										<input type="text" class="form-control" id="productText" placeholder="Text on your image" v-model="text">
-										<p>@{{ text }}</p>
 									</div>
 								</div>
 							</div>
@@ -32,14 +31,14 @@
 								<div class="row align-items-center">								
 									<div class="col-5">
 										<label class="sr-only" for="productSizeX">Width</label>
-										<input class="form-control" type="text" id="productSizeX" placeholder="Width" aria-describedby="dimensionsHelp">
+										<input class="form-control" type="text" id="productSizeX" placeholder="Width" aria-describedby="dimensionsHelp" v-model="size.width">
 									</div>
 
 									<div class="col-2">&times;</div>
 									
 									<div class="col-5">
 										<label class="sr-only" for="productSizeY">Height</label>
-										<input class="form-control" type="text" id="productSizeY" placeholder="Height" aria-describedby="dimensionsHelp">
+										<input class="form-control" type="text" id="productSizeY" placeholder="Height" aria-describedby="dimensionsHelp" v-model="size.height">
 									</div>
 								</div>
 
