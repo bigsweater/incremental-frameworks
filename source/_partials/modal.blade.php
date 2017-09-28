@@ -11,8 +11,8 @@
 			<div class="modal-body">
 				<form>
 					<div class="row">
-						<div class="col-sm-6">
-							<img alt="100%x280" src="https://placehold.it/356x280/868e96/f8f9fa" style="height: 280px; width: 100%; display: block;">
+						<div class="col-sm-6 text-center">
+							<img alt="Product Image" v-bind:src="productImageURL" style="max-width: 100%; height: auto;">
 						</div>
 
 						<div class="col-sm-6">

@@ -35,4 +35,35 @@ var Configurator = new Vue({
 		},
 		selectedColorScheme: ''
 	},
+
+	computed: {
+		productImageURL: function () {
+			var self = this;
+			var url = buildURL();
+			return url;
+
+			function buildURL () {
+				var base = 'https://placehold.it/';
+				var size = self.size.width + 'x' + self.size.height + '/';
+				var colors = colorsURLPart(self);
+				var text = textURLPart(self);
+
+				return base + size + colors + text;
+			}
+
+			function colorsURLPart () {
+				var scheme = self.selectedColorScheme.length ? self.selectedColorScheme : 'Custom...';
+				var bg = self.colorScheme[scheme].background.slice(1);
+				var text = self.colorScheme[scheme].text.slice(1);
+
+				return bg + '/' + text + '/';
+			}
+
+			function textURLPart() {
+				var text = self.text.length ? '?text=' + encodeURIComponent(self.text) + '&' : '';
+
+				return text;
+			}
+		}
+	}
 });
