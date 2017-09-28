@@ -32,6 +32,7 @@ var Configurator = new Vue({
 				background: '',
 				text: ''
 			}
-		}
+		},
+		selectedColorScheme: ''
 	},
 });

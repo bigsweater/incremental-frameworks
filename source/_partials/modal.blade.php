@@ -52,15 +52,10 @@
 
 								<div class="row">
 									<div class="col-12">
-										<select class="custom-select" id="productColorScheme">
-											<option selected>Choose a color scheme</option>
-											<option value="Flowers">Flowers</option>
-											<option value="Rivers">Rivers</option>
-											<option value="Sand">Sand</option>
-											<option value="Snow">Snow</option>
-											<option value="Storm">Storm</option>
-											<option value="Custom">Custom&hellip;</option>
-										</select>
+<select class="custom-select" id="productColorScheme" v-model="selectedColorScheme">
+	<option value="">Choose a color scheme</option>
+	<option v-for="(scheme, schemeName) in colorScheme" :value="schemeName" :selected="schemeName === selectedColorScheme">@{{schemeName}}</option>
+</select>
 									</div>
 								</div>
 							</div>
