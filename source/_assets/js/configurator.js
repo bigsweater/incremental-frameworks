@@ -41,7 +41,17 @@ var Configurator = new Vue({
 		url: 'https://placehold.it/320x240/868e96/f8f9fa?text=' + encodeURIComponent('Oh, hello')
 	},
 
-	computed: {
+computed: {
+	price: function () {
+		var costPerLetter = 0.1;
+		var costPerPixel = 0.005;
+		var area = this.constrainDimension(this.size.width) * this.constrainDimension(this.size.height);
+		var textLength = this.constrainTextLength(this.text);
+		var price = (costPerLetter * textLength) + (costPerPixel * area);
+
+		return '$' + price.toFixed(2);
+	},
+
 		productImageURL: function () {
 			var self = this;
 			var url = buildURL();
@@ -65,8 +75,8 @@ var Configurator = new Vue({
 			}
 
 			function sizeURLPart () {
-				var width = valBetween(self.size.width, self.minDimension, self.maxDimension);
-				var height = valBetween(self.size.height, self.minDimension, self.maxDimension);
+				var height = self.constrainDimension(self.size.height);
+				var width = self.constrainDimension(self.size.width);
 
 				return width + 'x' + height + '/';
 			}
@@ -110,6 +120,22 @@ var Configurator = new Vue({
 	},
 
 	methods: {
+		constrainDimension: function (dimension) {
+			return valBetween(dimension, this.minDimension, this.maxDimension)
+		},
+
+		constrainTextLength: function (text) {
+			if (text.length > this.maxTextLength) {
+				return this.maxTextLength
+			}
+
+			if (text.length == 0) {
+				return 1
+			}
+
+			return text.length
+		},
+
 		delayedUpdateURL: debounce(function (newURL) {
 			this.url = newURL;
 		}, 1000),

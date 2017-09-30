@@ -113,7 +113,7 @@
 								</div>
 							</div>
 							
-							<h4 class="mb-0 text-right text-success">$0.00</h4>
+							<h4 class="mb-0 text-right text-success">@{{ price }}</h4>
 						</div>
 					</div>
 				</form>	
