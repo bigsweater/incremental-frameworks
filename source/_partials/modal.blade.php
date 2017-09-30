@@ -9,7 +9,7 @@
 			</div>
 
 			<div class="modal-body">
-				<form id="product-configurator">
+				<form id="product-configurator" novalidate>
 					<div class="row">
 						<div class="col-sm-6 text-center">
 							<img alt="Product Image" :src="url" style="max-width: 100%; height: auto;">
@@ -23,9 +23,18 @@
 										<input 
 											type="text"
 											class="form-control"
+											:class="{ 'is-invalid': !validText }"
 											id="productText"
 											placeholder="Text on your image"
 											v-model="text">
+										<small
+											class="form-text text-right"
+											:class="{
+												'text-muted': validText,
+												'invalid-feedback': !validText,
+											}">
+											@{{ textLengthDifference }}
+										</small>
 									</div>
 								</div>
 							</div>
@@ -37,7 +46,8 @@
 									<div class="col-5">
 										<label class="sr-only" for="productSizeX">Width</label>
 										<input
-											class="form-control form-control-warning"
+											class="form-control"
+											:class="{ 'is-invalid': !validWidth }"
 											type="number"
 											id="productSizeX" 
 											placeholder="Width" 
@@ -52,7 +62,8 @@
 									<div class="col-5">
 										<label class="sr-only" for="productSizeY">Height</label>
 										<input
-											class="form-control form-control-warning"
+											class="form-control"
+											:class="{ 'is-invalid': !validHeight }"
 											type="number"
 											id="productSizeY" 
 											placeholder="Height" 
@@ -61,12 +72,15 @@
 											max="600"
 											v-model="size.height">
 									</div>
-
-									<div class="invalid-feedback">Please use a value between 50 and 600.</div>
 								</div>
 
-								<small id="dimensionsHelp" class="form-text text-muted">
-									Maximum width/height: 600 pixels. Minimum: 50 pixels.
+								<small
+									class="form-text text-right d-block"
+									:class="{
+										'text-muted': validWidth && validHeight,
+										'invalid-feedback': !validWidth || !validHeight
+									}">
+									Minimum: 50. Maximum: 600.
 								</small>
 							</div>
 
@@ -107,7 +121,7 @@
 
 			<div class="modal-footer">
 				<button type="button" class="btn btn-secondary" data-dismiss="modal">Reset</button>
-				<button type="button" class="btn btn-primary">Add to Cart</button>
+				<button type="button" class="btn btn-primary" :disabled="!validForm">Add to Cart</button>
 			</div>
 		</div>
 	</div>

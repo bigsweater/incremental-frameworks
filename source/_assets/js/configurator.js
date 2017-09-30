@@ -122,12 +122,6 @@ var Configurator = new Vue({
 	}
 });
 
-function isInt(value) {
-	return !isNaN(value) &&
-		   parseInt(Number(value)) == value &&
-		   !isNaN(parseInt(value, 10))
-}
-
 function debounce(fn, wait, immediate) {
 	var timeout;
 
@@ -153,6 +147,12 @@ function debounce(fn, wait, immediate) {
 			fn.apply(context, args);
 		}
 	}
+}
+
+function isInt(value) {
+	return !isNaN(value) &&
+		   parseInt(Number(value)) == value &&
+		   !isNaN(parseInt(value, 10))
 }
 
 function valBetween (val, min, max) {
