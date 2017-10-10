@@ -1,7 +1,8 @@
 var Configurator = new Vue({
 	el: '#modalWidget',
 
-	data: {
+data: function () {
+	return {
 		text: 'oh, hello',
 		size: {
 			height: 240,
@@ -39,7 +40,8 @@ var Configurator = new Vue({
 		minDimension: 50,
 		selectedColorScheme: '',
 		url: 'https://placehold.it/320x240/868e96/f8f9fa?text=' + encodeURIComponent('Oh, hello')
-	},
+	}
+},
 
 computed: {
 	price: function () {
@@ -144,6 +146,10 @@ computed: {
 			return isInt(number) &&
 				   number >= this.minDimension &&
 				   number <= this.maxDimension
+		},
+
+		reset: function () {
+			$.extend(true, this.$data, this.$options.data.call(this))
 		}
 	}
 });
