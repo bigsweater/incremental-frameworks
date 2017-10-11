@@ -1,58 +1,58 @@
 var Configurator = new Vue({
 	el: '#modalWidget',
 
-data: function () {
-	return {
-		text: 'oh, hello',
-		size: {
-			height: 240,
-			width: 320
-		},
-		colorScheme: {
-			Flowers: {
-				background: '#76B041',
-				text: '#FFC914'
+	data: function () {
+		return {
+			text: 'oh, hello',
+			size: {
+				height: 240,
+				width: 320
 			},
-			Rivers: {
-				background: '#698F3F',
-				text: '#804E49'
+			colorScheme: {
+				Flowers: {
+					background: '#76B041',
+					text: '#FFC914'
+				},
+				Rivers: {
+					background: '#698F3F',
+					text: '#804E49'
+				},
+				Sand: {
+					background: '#D58936',
+					text: '#A44200'
+				},
+				Snow: {
+					background: '#F8FFF4',
+					text: '#474350'
+				},
+				Storm: {
+					background: '#031926',
+					text: '#7CA5B8'
+				},
+				'Custom...': {
+					background: '#868e96',
+					text: '#f8f9fa'
+				}
 			},
-			Sand: {
-				background: '#D58936',
-				text: '#A44200'
-			},
-			Snow: {
-				background: '#F8FFF4',
-				text: '#474350'
-			},
-			Storm: {
-				background: '#031926',
-				text: '#7CA5B8'
-			},
-			'Custom...': {
-				background: '#868e96',
-				text: '#f8f9fa'
-			}
-		},
 
-		maxTextLength: 140,
-		maxDimension: 600,
-		minDimension: 50,
-		selectedColorScheme: '',
-		url: 'https://placehold.it/320x240/868e96/f8f9fa?text=' + encodeURIComponent('Oh, hello')
-	}
-},
-
-computed: {
-	price: function () {
-		var costPerLetter = 0.1;
-		var costPerPixel = 0.005;
-		var area = this.constrainDimension(this.size.width) * this.constrainDimension(this.size.height);
-		var textLength = this.constrainTextLength(this.text);
-		var price = (costPerLetter * textLength) + (costPerPixel * area);
-
-		return '$' + price.toFixed(2);
+			maxTextLength: 140,
+			maxDimension: 600,
+			minDimension: 50,
+			selectedColorScheme: '',
+			url: 'https://placehold.it/320x240/868e96/f8f9fa?text=' + encodeURIComponent('Oh, hello')
+		}
 	},
+
+	computed: {
+		price: function () {
+			var costPerLetter = 0.1;
+			var costPerPixel = 0.005;
+			var area = this.constrainDimension(this.size.width) * this.constrainDimension(this.size.height);
+			var textLength = this.constrainTextLength(this.text);
+			var price = (costPerLetter * textLength) + (costPerPixel * area);
+
+			return '$' + price.toFixed(2);
+		},
 
 		productImageURL: function () {
 			var self = this;
