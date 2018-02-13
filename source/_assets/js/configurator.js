@@ -146,15 +146,32 @@ var Configurator = new Vue({
 			$.extend(true, this.$data, this.$options.data.call(this))
 		},
 
-		restoreFromLocalStorage: function () {},
+		restoreFromLocalStorage: function () {
+			var data = JSON.parse(window.localStorage.getItem('vueforlegacy'))
 
-		save: function () {},
+			if (data) {
+				$.extend(true, this.$data, data)
+			}
+		},
+
+		saveToLocalStorage: function () {
+			var data = JSON.stringify(this.$data)
+			window.localStorage.setItem('vueforlegacy', data)
+		},
 
 		validateNumber: function (number) {
 			return isInt(number) &&
 				   number >= this.minDimension &&
 				   number <= this.maxDimension
 		},
+	},
+
+	beforeMount: function () {
+		this.restoreFromLocalStorage();
+	},
+
+	updated: function () {
+		this.saveToLocalStorage();
 	}
 });
 
