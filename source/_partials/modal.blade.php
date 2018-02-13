@@ -120,7 +120,7 @@
 			</div>
 
 			<div class="modal-footer">
-				<button type="button" class="btn btn-secondary" v-on:click="reset">Reset</button>
+				<button type="button" class="btn btn-secondary" @click="reset">Reset</button>
 				<button type="button" class="btn btn-primary" :disabled="!validForm">Add to Cart</button>
 			</div>
 		</div>

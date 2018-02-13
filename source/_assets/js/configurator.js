@@ -142,15 +142,19 @@ var Configurator = new Vue({
 			this.url = newURL;
 		}, 1000),
 
+		reset: function () {
+			$.extend(true, this.$data, this.$options.data.call(this))
+		},
+
+		restoreFromLocalStorage: function () {},
+
+		save: function () {},
+
 		validateNumber: function (number) {
 			return isInt(number) &&
 				   number >= this.minDimension &&
 				   number <= this.maxDimension
 		},
-
-		reset: function () {
-			$.extend(true, this.$data, this.$options.data.call(this))
-		}
 	}
 });
 
